@@ -111,19 +111,28 @@ export const Navbar = () => {
         <div className="container max-w-6xl mx-auto px-4 py-4 glass-nav mt-1 rounded-b-xl">
           <div className="flex flex-col space-y-2">
             {navItems.map((item, key) => (
-              <a
+              <button
                 key={key}
-                href={item.href}
+                onClick={() => {
+                  const target = document.querySelector(item.href);
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                  }
+                  setIsMenuOpen(false);
+                }}
                 className={`flex items-center space-x-4 px-4 py-3 rounded-md my-1 transition-colors duration-200 ${
                   window.location.hash === item.href
                     ? 'bg-accent text-primary font-medium'
                     : 'text-foreground hover:bg-accent/50'
                 }`}
-                onClick={() => setIsMenuOpen(false)}
               >
-                <span class>{item.name}</span>
-              </a>
+                <span>{item.name}</span>
+              </button>
             ))}
+            {/* Theme Toggle for Mobile */}
+            <div className="mt-2 px-4">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </motion.div>
