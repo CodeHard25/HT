@@ -2,7 +2,7 @@
   "name": "hardik_t",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://codehard25.github.io/HT_Portfolio/",
+  "homepage": "https://codehard25.github.io/HT/",
   "type": "module",
   "scripts": {
     "dev": "vite",
